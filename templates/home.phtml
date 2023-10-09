@@ -1,0 +1,5 @@
+<ul>
+    <?php foreach ($libros as $libro) : ?>
+        <li><a href="libro/<?= $libro->id ?>"><?= $libro->titulo ?></a></li>
+    <?php endforeach ?>
+</ul>
