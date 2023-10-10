@@ -1,10 +1,11 @@
-<h2><?= $libro->titulo ?></h2>
 <p><?= $libro->descripcion ?></p>
-<p><a href="autor/<?= $autor->id ?>"><?= $autor->nombre ?></a></p>
+<p>Género: <a href="genero/<?= $libro->genero ?>"><?= $libro->genero ?></a></p>
+<p>Autor: <a href="autor/<?= $autor->id ?>"><?= $autor->nombre ?></a></p>
+<h3>$<?= $libro->precio ?></h3>
 
 <!--
 
     - AGREGAR BOTON COMPRAR
-    - AGREGAR CSS
+    - AGREGAR CSSgenero
 
 -->

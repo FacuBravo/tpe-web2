@@ -14,6 +14,7 @@ if (!empty($_GET['action'])) {
 // login        ->      AuthController->showLogin()
 // registro     ->      AuthController->showRegister()
 // libro/id     ->      LibrosController->showLibro($id)
+// autor/id     ->      Controller->showAutor($id)
 
 $params = explode('/', $action);
 
