@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-09-2023 a las 22:16:10
+-- Tiempo de generación: 10-10-2023 a las 03:44:57
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -42,10 +42,37 @@ CREATE TABLE `autores` (
 CREATE TABLE `libros` (
   `id` int(11) NOT NULL,
   `titulo` varchar(150) NOT NULL,
-  `genero` text NOT NULL,
+  `genero` varchar(15) NOT NULL,
   `id_autor` int(11) NOT NULL,
   `descripcion` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `libros`
+--
+
+INSERT INTO `libros` (`id`, `titulo`, `genero`, `id_autor`, `descripcion`) VALUES
+(1, 'Las mil y una noches', 'Drama', 1, 'blafmsdhvslffaschbdhv');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `usuario` varchar(45) NOT NULL,
+  `contraseña` varchar(45) NOT NULL,
+  `rol` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `usuario`, `contraseña`, `rol`) VALUES
+(1, 'webadmin', '$2y$10$EpV8ggqVArqpp2g4Mzh4OObrVda3aC96Es/IdU', 'administrador');
 
 --
 -- Índices para tablas volcadas
@@ -65,6 +92,12 @@ ALTER TABLE `libros`
   ADD UNIQUE KEY `id_autor` (`id_autor`);
 
 --
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -78,7 +111,13 @@ ALTER TABLE `autores`
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
