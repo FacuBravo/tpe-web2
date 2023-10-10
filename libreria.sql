@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-10-2023 a las 03:44:57
+-- Tiempo de generación: 10-10-2023 a las 19:12:58
 -- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Versión de PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,6 +33,13 @@ CREATE TABLE `autores` (
   `descripcion` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `autores`
+--
+
+INSERT INTO `autores` (`id`, `nombre`, `descripcion`) VALUES
+(1, 'Mario Vargas Llosa', 'Jorge Mario Pedro Vargas Llosa, conocido como Mario Vargas Llosa, es un escritor peruano que cuenta también con la nacionalidad española desde 1993 y la dominicana desde junio de 2023.​');
+
 -- --------------------------------------------------------
 
 --
@@ -52,7 +59,7 @@ CREATE TABLE `libros` (
 --
 
 INSERT INTO `libros` (`id`, `titulo`, `genero`, `id_autor`, `descripcion`) VALUES
-(1, 'Las mil y una noches', 'Drama', 1, 'blafmsdhvslffaschbdhv');
+(1, 'Las mil y una noches', 'Drama', 1, 'Las mil y una noches ​ es una recopilación medieval de cuentos orientales tradicionales. La obra fue tomando forma durante el transcurso de varios siglos con las contribuciones de diferentes escritores y traductores del Oriente Próximo.');
 
 -- --------------------------------------------------------
 
@@ -63,7 +70,7 @@ INSERT INTO `libros` (`id`, `titulo`, `genero`, `id_autor`, `descripcion`) VALUE
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `usuario` varchar(45) NOT NULL,
-  `contraseña` varchar(45) NOT NULL,
+  `contrasenia` varchar(45) NOT NULL,
   `rol` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -71,7 +78,7 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `usuario`, `contraseña`, `rol`) VALUES
+INSERT INTO `usuarios` (`id`, `usuario`, `contrasenia`, `rol`) VALUES
 (1, 'webadmin', '$2y$10$EpV8ggqVArqpp2g4Mzh4OObrVda3aC96Es/IdU', 'administrador');
 
 --
@@ -105,7 +112,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `autores`
 --
 ALTER TABLE `autores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `libros`
