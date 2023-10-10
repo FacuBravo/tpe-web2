@@ -14,4 +14,4 @@ Nuestro proyecto va a consistir en una página web en la que se va a poder
 buscar libros por genero, autor y titulo.
 Los usuarios encontraran más información sobre sus autores y libros favoritos.
 
-![Diagram de entidad relación](imagenes/DER.jpeg)
+![Diagram de entidad relación](images/DER.jpeg)
