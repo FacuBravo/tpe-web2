@@ -1,10 +1,12 @@
 <?php
 
+require_once "config.php";
+
 class LibrosModel {
     private $bd;
 
     public function __construct() {
-        $this->bd = new PDO('mysql:host=localhost;dbname=libreria;charset=utf8', 'root', '');
+        $this->bd = new PDO('mysql:host=' . BD_HOST . ';dbname=' . BD_NAME . ';charset=' . BD_CHARSET . '', '' . BD_USER . '', '' . BD_PASS . '');
     }
 
     public function getLibros() {
