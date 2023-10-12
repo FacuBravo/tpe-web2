@@ -1,0 +1,87 @@
+h1 {
+    text-align: center;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+} 
+
+header {
+    background-color: rgb(183, 228, 199); 
+    display: flex;
+    align-items: flex-start; 
+    padding: 20px; 
+}
+footer {
+    background-color: rgb(183, 228, 199); 
+    text-align: center;
+    position: fixed;
+    bottom: 0; 
+    width: 100%; 
+}
+
+p { 
+    text-transform: uppercase;
+    padding: 15px;
+    color: rgb(74, 144, 226); 
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.boton {
+    display: inline;
+    list-style: none;
+    margin: 10px 0;
+    text-transform: uppercase;
+    padding: 15px;
+    color: rgb(74, 144, 226); 
+    font-weight: bold;
+    background-color: rgb(162, 219, 178); 
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    width: 150px; 
+}
+
+.boton:hover {
+    background-color: rgb(127, 195, 160); 
+    color: rgb(255, 255, 255); 
+}
+
+#iniciarSesion {
+    list-style: none;
+    padding: 15px;
+    margin: 10px 0;
+    text-transform: uppercase;
+    padding: 15px;
+    color: rgb(0, 102, 204);
+    font-weight: bold;
+    background-color: rgb(111, 184, 136); 
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    width: 150px; 
+    font-family: Arial, sans-serif;
+}
+
+#iniciarSesion:hover {
+    background-color: rgb(85, 142, 106); 
+    color: rgb(255, 255, 255);
+}
+
+
+
+.gmail-link {
+    color: rgb(0, 102, 204); /* Color de texto azul */
+    text-decoration: none;
+    font-weight: bold;
+    font-family: Arial, sans-serif; /* Tipo de letra */
+    margin: 0 10px;
+}
+
+.gmail-link:hover {
+    color: rgb(85, 142, 106); /* Cambiar color de texto al pasar el ratón a verde */
+}
