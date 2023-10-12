@@ -4,18 +4,21 @@
     <base href="<?= BASE_URL ?>">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/churunchun.css">
+    <link rel="stylesheet" href="CSS/inicio.css">
     <title><?= $titulo ?></title>
 </head>
 <body>
     <header>
         <h1><?= $titulo ?></h1>
-        <ul id="inicio" >
-            <a class="linkInvisible"><li class="boton">Usuarios</li></a>  
-            <a class="linkInvisible" ><li class="boton">Autores</li></a>
-            <a class="linkInvisible" ><li class="boton">Libros</li></a>
-            <a class="linkInvisible" ><li class="boton">Contacto</li></a>
-        </ul>
-        <button id="iniciarSesion"><a href="login">Iniciar Sesion</a></button>
 
+        <nav>
+            <ul id="inicio" >
+                <li class="boton"><a class="linkInvisible" >Autores</a></li>
+                <li class="boton"><a class="linkInvisible" >Libros</a></li>
+                <li class="boton"><a class="linkInvisible" >Contacto</a></li> 
+                <!-- Agregar contacto -->
+            </ul>
+
+            <a href="login">Iniciar Sesion</a>
+        </nav>
     </header>

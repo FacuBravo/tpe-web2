@@ -5,7 +5,6 @@ h1 {
 body {
     margin: 0;
     padding: 0;
-    background-color: rgb(74, 144, 226);
 } 
 
 header {
@@ -31,7 +30,9 @@ p {
     border-radius: 5px;
     text-align: center;
 }
+
 .boton {
+    display: inline;
     list-style: none;
     margin: 10px 0;
     text-transform: uppercase;
@@ -42,7 +43,8 @@ p {
     border: none;
     border-radius: 5px;
     text-align: center;
-    width: 150px; 
+    width: 150px;
+    cursor: pointer;
 }
 
 .boton:hover {
@@ -74,13 +76,13 @@ p {
 
 
 .gmail-link {
-    color: rgb(0, 102, 204); /* Color de texto azul */
+    color: rgb(0, 102, 204); 
     text-decoration: none;
     font-weight: bold;
-    font-family: Arial, sans-serif; /* Tipo de letra */
+    font-family: Arial, sans-serif;
     margin: 0 10px;
 }
 
 .gmail-link:hover {
-    color: rgb(85, 142, 106); /* Cambiar color de texto al pasar el ratón a verde */
+    color: rgb(85, 142, 106);
 }

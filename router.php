@@ -35,6 +35,14 @@ switch ($params[0]) {
         $controller = new LibrosController();
         $controller->showLibro($params[1]);
         break;
+    case 'autor':
+        $controller = new LibrosController();
+        $controller->showAutor($params[1]);
+        break;
+    case 'genero':
+        $controller = new LibrosController();
+        $controller->showGenero($params[1]);
+        break;
     default:
         echo "404 Page Not Found";
         break;

@@ -19,7 +19,18 @@ class LibrosController {
 
     public function showLibro($idLibro) {
         $libro = $this->modelLibros->getLibroPorId($idLibro);
-        $autor = $this->modelAutores->getAutorPorId($libro->id_autor);
+        $autor = $this->modelAutores->getAutorPorId($libro->id_autor); 
         $this->view->renderLibro($libro, $autor);
+    }
+
+    public function showAutor ($idAutor) {
+        $autor = $this->modelAutores->getAutorPorId($idAutor);
+        $libros = $this->modelLibros->getLibrosPorAutor($idAutor);
+        $this->view->renderAutor($autor, $libros);
+    }
+
+    public function showGenero($genero) {
+        $libros = $this->modelLibros->getLibrosPorGenero($genero);
+        $this->view->renderLibrosPorGenero($libros, $genero);
     }
 }
