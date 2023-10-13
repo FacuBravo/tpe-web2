@@ -12,7 +12,10 @@ if (!empty($_GET['action'])) {
 
 // home         ->      LibrosController->showHome()
 // login        ->      AuthController->showLogin()
+// auth         ->      AuthController->auth()
+// logout       ->      AuthController->logout()
 // registro     ->      AuthController->showRegister()
+// nuevoUsuario ->      AuthController->nuevoUsuario()
 // libro/id     ->      LibrosController->showLibro($id)
 // autor/id     ->      Controller->showAutor($id)
 
@@ -27,9 +30,21 @@ switch ($params[0]) {
         $controller = new AuthController();
         $controller->showLogin();
         break;
+    case 'auth':
+        $controller = new AuthController();
+        $controller->auth();
+        break;
+    case 'logout':
+        $controller = new AuthController();
+        $controller->logout();
+        break;
     case 'registro':
         $controller = new AuthController();
-        $controller->showRegister();
+        $controller->showRegistro();
+        break;
+    case 'nuevoUsuario':
+        $controller = new AuthController();
+        $controller->nuevoUsuario();
         break;
     case 'libro':
         $controller = new LibrosController();

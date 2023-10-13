@@ -16,32 +16,32 @@ class AuthController {
         $this->view->renderLogin();
     }
 
-    public function showRegister() {
+    public function showRegistro() {
         $this->view->renderRegister();
     }
 
     public function auth() {
-        $usuario = $_POST['nombreUsuario'];
+        $usuario = $_POST['usuario'];
         $contrasenia = $_POST['contrasenia'];
 
-        if (empty($userName) || empty($password)) {
+        if (empty($usuario) || empty($contrasenia)) {
             $this->view->renderLogin("Faltan completar datos");
             return;
         }
 
-        $user = $this->model->getPorUsuario($usuario);
+        $usuario = $this->model->getPorUsuario($usuario);
 
-        if ($user && password_verify($contrasenia, $user->contrasenia)) {
-            AuthHelper::login($user);
+        if ($usuario && password_verify($contrasenia, $usuario->contrasenia)) {
+            AuthHelper::login($usuario);
             
-            header("Location: " . BASE_URL);
+            header("Location: " . BASE_URL . 'home');
         } else {
             $this->view->renderLogin("Usuario o contraseña incorrectos");
         }
     }
 
     public function nuevoUsuario() {
-        $usuario = $_POST['nombreUsuario'];
+        $usuario = $_POST['usuario'];
         $contrasenia = $_POST['contrasenia'];
 
         if (empty($usuario) || empty($contrasenia)) {
@@ -60,11 +60,11 @@ class AuthController {
 
         $this->model->nuevoUsuario($usuario, $hash);
 
-        header("Location:" . BASE_URL);
+        header("Location:" . BASE_URL . 'login');
     }
 
     public function logOut() {
         AuthHelper::logout();
-        header('Location: ' . BASE_URL . "login");
+        header('Location: ' . BASE_URL . 'home');
     }
 }

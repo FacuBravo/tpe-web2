@@ -7,6 +7,7 @@ class LibrosController {
     private $view, $modelLibros, $modelAutores;
 
     public function __construct() {
+        AuthHelper::init();
         $this->view = new LibrosView();
         $this->modelLibros = new LibrosModel();
         $this->modelAutores = new AutoresModel();

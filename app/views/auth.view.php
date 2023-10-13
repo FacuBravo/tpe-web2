@@ -2,12 +2,16 @@
 
 class AuthView {
     public function renderLogin($mensaje = null) {
-        echo "Iniciar sesion";
-        // HACER VISTA INICIO SESION
+        $titulo = "Iniciar sesion";
+        $action = "auth";
+        require_once "./templates/header.phtml";
+        require_once "./templates/form-login-registro.phtml";
     }
 
     public function renderRegister($mensaje = null) {
-        echo "Registro";
-        // HACER VISTA REGISTRO
+        $titulo = "Registro";
+        $action = "nuevoUsuario";
+        require_once "./templates/header.phtml";
+        require_once "./templates/form-login-registro.phtml";
     }
 }
