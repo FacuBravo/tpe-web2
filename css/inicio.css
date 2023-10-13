@@ -80,7 +80,7 @@ p {
     align-items:center;
 }
 
-.autores-container {
+.container-tarjetas {
     margin: auto;
     width: 95%;
     height: auto;
@@ -92,7 +92,7 @@ p {
     gap: 35px;
 }
 
-.autor-info {
+.tarjeta-info {
     width: 350px;
     height: 250px;
     border: 2px solid rgb(74, 144, 226);;
@@ -101,12 +101,12 @@ p {
     padding: 0 15px;
 }
 
-.autor-info h3 {
+.tarjeta-info h3 {
     margin: 16px 0;
     font-size: 20px;
 }
 
-.autor-info h3 a {
+.tarjeta-info a {
     color: rgb(85, 142, 106);
     text-decoration: none;
 }
@@ -177,6 +177,40 @@ footer div {
 
 .oculto {
     display: none;
+}
+
+.libro-info-container {
+    margin-top: 4%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.libro-info-container article {
+    display: flex;
+    width: 90%;
+    justify-content: center;
+}
+
+.libro-info-container article div {
+    width: 600px;
+    padding: 35px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.libro-info-container article div h3 {
+    margin-bottom: 10px;
+    color: rgb(127,195,160);
+}
+
+.error-container {
+    color: red;
+    font-size: 32px;
+    text-align: center;
+    margin-top: 10%;
 }
 
 * {

@@ -78,4 +78,8 @@ class LibrosController {
 
         return $cuenta > 0;
     }
+
+    public function editar() {
+        
+    }
 }

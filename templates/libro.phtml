@@ -1,11 +1,15 @@
-<p><?= $libro->descripcion ?></p>
-<p>Género: <?= $libro->genero ?></p>
-<p>Autor: <a href="autor/<?= $autor->id ?>"><?= $autor->nombre ?></a></p>
-<h3>$<?= $libro->precio ?></h3>
+<section class="libro-info-container">
+    <article>
+        <div>
+            <h3>Descripción:</h3>
+            <p><?= $libro->descripcion ?></p>
+        </div>
 
-<!--
-
-    - AGREGAR BOTON COMPRAR
-    - AGREGAR CSSgenero
-
--->
+        <div>
+            <h3>Información:</h3>
+            <p>Género: <?= $libro->genero ?></p>
+            <p>Autor: <a href="autor/<?= $autor->id ?>"><?= $autor->nombre ?></a></p>
+            <p>$<?= $libro->precio ?></p>
+        </div>
+    </article>
+</section>

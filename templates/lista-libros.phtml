@@ -1,5 +1,13 @@
-<ul>
+<section class="container-tarjetas">
     <?php foreach ($libros as $libro) : ?>
-        <li><a href="libro/<?= $libro->id ?>"><?= $libro->titulo ?></a></li>
+        <article class="tarjeta-info">
+            <h3><a href="libro/<?= $libro->id ?>"><?= $libro->titulo ?></a></h3>
+
+            <?php if (!empty($_SESSION['USER_ROL']) && $_SESSION['USER_ROL'] == "administrador") : ?>
+                <a href="editar/<?= $libro->id ?>">Editar</a>
+            <?php endif ?>
+            
+            <p><?= $libro->descripcion ?></p>
+        </article>
     <?php endforeach ?>
-</ul>
+</section>

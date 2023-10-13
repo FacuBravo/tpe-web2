@@ -23,6 +23,8 @@ $params = explode('/', $action);
 // autor/id     ->      LibrosController->showAutor($id)
 // autores      ->      SeccionesController->showAutores()
 // about        ->      SeccionesController->showAbout()
+// editar       ->      SeccionesController->showEditar()
+// editarLibro  ->      LibrosController->editar()
 
 switch ($params[0]) {
     case 'home':
@@ -73,7 +75,16 @@ switch ($params[0]) {
         $controller = new LibrosController();
         $controller->nuevoLibro();
         break;
+    case 'editar':
+        $controller = new SeccionesController();
+        $controller->showEditar($params[1]);
+        break;
+    case 'editarLibro':
+        $controller = new LibrosController();
+        $controller->editar();
+        break;
     default:
-        echo "404 Page Not Found";
+        $controller = new SeccionesController();
+        $controller->showError(404);
         break;
 }

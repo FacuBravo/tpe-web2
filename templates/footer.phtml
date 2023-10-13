@@ -8,7 +8,7 @@
         </div>
     </footer>
     
-    <?php if ($_GET["action"] == "cargarLibro" || $_GET["action"] == "nuevoLibro") : ?>
+    <?php if ($_GET["action"] == "cargarLibro" || $_GET["action"] == "nuevoLibro" || explode("/", $_GET["action"])[0] == "editar") : ?>
         <script src="js/jsForm.js"></script>
     <?php endif ?>
 </body>

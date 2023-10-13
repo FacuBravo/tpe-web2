@@ -24,8 +24,25 @@ class SeccionesView {
         ViewsHelper::footer();
     }
 
-    public function renderCargarLibro($autores, $mensaje = null) {
+    public function renderCargarLibro($autores, $libro = null, $mensaje = null) {
         $titulo = "Nuevo libro";
+        $action = "nuevoLibro";
+        ViewsHelper::header($titulo);
+        require_once "./templates/agregar-item-form.phtml";
+        ViewsHelper::footer();
+    }
+    
+    public function renderError($error) {
+        $titulo = "Error";
+
+        ViewsHelper::header($titulo);
+        require_once "./templates/error.phtml";
+        ViewsHelper::footer();
+    }
+    
+    public function renderFormEditarLibro($libro, $autores, $mensaje = null) {
+        $titulo = "Editar libro";
+        $action = "editarLibro";
         ViewsHelper::header($titulo);
         require_once "./templates/agregar-item-form.phtml";
         ViewsHelper::footer();

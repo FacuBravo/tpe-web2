@@ -27,4 +27,20 @@ class SeccionesController {
         $autores = $this->modelAutores->getAutores();
         $this->view->renderCargarLibro($autores);
     }
+
+    public function showEditar($id) {
+        $libro = $this->modelLibros->getLibroPorId($id);
+        $autores = $this->modelAutores->getAutores();
+        $this->view->renderFormEditarLibro($libro, $autores);
+    }
+
+    public function showError($error) {
+        switch ($error) {
+            case 404:
+                $error = "Error 404 No Encontrado";
+                break;
+        }
+        
+        $this->view->renderError($error);
+    }
 }

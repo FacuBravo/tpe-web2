@@ -1,20 +1,20 @@
 <section class="form-container">
-    <form class="form" method="POST" action="nuevoLibro">
-        <input class="input" type="text" name="titulo" placeholder="Titulo" required>
-        <input class="input" type="text" name="genero" placeholder="Genero" required>
-        <input class="input" type="text" name="descripcion" placeholder="Descripcion" required>
-        <input class="input" type="number" name="precio" placeholder="Precio" required>
+    <form class="form" method="POST" action="<?= $action ?>">
+        <input class="input" type="text" name="titulo" placeholder="Titulo" required autocomplete="off" <?php if ($libro != null) : ?> value="<?= $libro->titulo ?>" <?php endif ?>>
+        <input class="input" type="text" name="genero" placeholder="Genero" required <?php if ($libro != null) : ?> value="<?= $libro->genero ?>" <?php endif ?>>
+        <input class="input" type="text" name="descripcion" placeholder="Descripcion" required autocomplete="off" <?php if ($libro != null) : ?> value="<?= $libro->descripcion ?>" <?php endif ?>>
+        <input class="input" type="number" name="precio" placeholder="Precio" required autocomplete="off" <?php if ($libro != null) : ?> value="<?= $libro->precio ?>" <?php endif ?>>
 
         <label for="autor">Autor</label>
-        <select class="input select" name="autor" id="selectAutor">
+        <select class="input select" name="autor" id="selectAutor" <?php if ($libro != null) : ?> value="<?= $libro->id_autor ?>" <?php endif ?>>
             <?php foreach ($autores as $autor) : ?>
                 <option value="<?= $autor->id ?>"><?= $autor->nombre ?></option>
             <?php endforeach ?>
             <option value="otro">Otro</option>
         </select>
 
-        <input class="oculto input" type="text" id="nombreAutor" name="nombreAutor" placeholder="Nombre">
-        <input class="oculto input" type="text" id="descripcionAutor" name="descripcionAutor" placeholder="Descripcion">
+        <input class="oculto input" type="text" id="nombreAutor" name="nombreAutor" placeholder="Nombre" autocomplete="off">
+        <input class="oculto input" type="text" id="descripcionAutor" name="descripcionAutor" placeholder="Descripcion" autocomplete="off">
 
         <button class="boton">Cargar</button>
     </form>
