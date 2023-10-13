@@ -27,7 +27,6 @@
             <ul>
                 <li><a href="home" class="boton">Home</a></li>
                 <li><a href="autores" class="boton">Autores</a></li>
-                <li><a href="generos" class="boton">Géneros</a></li>
 
                 <?php if (isset($_SESSION['USER_ID']) && $_SESSION["USER_ROL"] == "administrador") : ?>
                     <li><a href="cargarLibro" class="boton">Cargar Libro</a></li>
@@ -37,3 +36,5 @@
             </ul>
         </nav>
     </header>
+    
+    <main>

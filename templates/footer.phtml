@@ -1,9 +1,15 @@
-
+    </main>
+    
     <footer>
-        <p>Contactanos:</p>
-        <a href="https://mail.google.com/" target="_blank" class="gmail-link">zuninov9@gmail.com</a>
-        <a href="https://mail.google.com/" target="_blank" class="gmail-link">bfacundo176@gmail.com</a>
+        <div>
+            <p>Contactanos:</p>
+            <a href="https://mail.google.com/" target="_blank" class="gmail-link">zuninov9@gmail.com</a>
+            <a href="https://mail.google.com/" target="_blank" class="gmail-link">bfacundo176@gmail.com</a>
+        </div>
     </footer>
-    </head>
+    
+    <?php if ($_GET["action"] == "cargarLibro" || $_GET["action"] == "nuevoLibro") : ?>
+        <script src="js/jsForm.js"></script>
+    <?php endif ?>
 </body>
 </html>

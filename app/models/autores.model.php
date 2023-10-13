@@ -16,8 +16,13 @@ class AutoresModel {
     }
 
     public function getAutores() {
-        $query = $this->bd->prepare("SELECT * FROM autores");
+        $query = $this->bd->prepare("SELECT * FROM autores ORDER BY id");
         $query->execute();
         return $query->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    public function agregarAuto($id, $nombreAutor, $descripcionAutor) {
+        $query = $this->bd->prepare("INSERT INTO autores (id, nombre, descripcion) VALUES (?, ?, ?)");
+        $query->execute([$id, $nombreAutor, $descripcionAutor]);
     }
 }

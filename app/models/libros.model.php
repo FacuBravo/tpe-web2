@@ -27,15 +27,8 @@ class LibrosModel {
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function getLibrosPorGenero($genero) {
-        $query = $this->bd->prepare("SELECT * FROM libros WHERE genero = ?");
-        $query->execute([$genero]);
-        return $query->fetchAll(PDO::FETCH_OBJ);
-    }
-
-    public function getGeneros() {
-        $query = $this->bd->prepare("SELECT genero FROM libros");
-        $query->execute();
-        return $query->fetchAll(PDO::FETCH_OBJ);
+    public function agregarLibro($titulo, $genero, $descripcion, $precio, $autor) {
+        $query = $this->bd->prepare("INSERT INTO libros (titulo, genero, id_autor, descripcion, precio) VALUES (?, ?, ?, ?, ?)");
+        $query->execute([$titulo, $genero, $autor, $descripcion, $precio]);
     }
 }

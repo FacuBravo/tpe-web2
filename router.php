@@ -22,8 +22,6 @@ $params = explode('/', $action);
 // libro/id     ->      LibrosController->showLibro($id)
 // autor/id     ->      LibrosController->showAutor($id)
 // autores      ->      SeccionesController->showAutores()
-// genero/id    ->      LibrosController->showGenero($id)
-// generos      ->      SeccionesController->showGeneros()
 // about        ->      SeccionesController->showAbout()
 
 switch ($params[0]) {
@@ -63,17 +61,17 @@ switch ($params[0]) {
         $controller = new SeccionesController();
         $controller->showAutores();
         break;
-    case 'genero':
-        $controller = new LibrosController();
-        $controller->showGenero($params[1]);
-        break;
-    case 'generos':
-        $controller = new SeccionesController();
-        $controller->showGeneros();
-        break;
     case 'about':
         $controller = new SeccionesController();
         $controller->showAbout();
+        break;
+    case 'cargarLibro':
+        $controller = new SeccionesController();
+        $controller->showCargarLibro();
+        break;
+    case 'nuevoLibro':
+        $controller = new LibrosController();
+        $controller->nuevoLibro();
         break;
     default:
         echo "404 Page Not Found";

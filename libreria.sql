@@ -70,7 +70,7 @@ INSERT INTO `libros` (`id`, `titulo`, `genero`, `id_autor`, `descripcion`) VALUE
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `usuario` varchar(45) NOT NULL,
-  `contrasenia` varchar(45) NOT NULL,
+  `contrasenia` varchar(200) NOT NULL,
   `rol` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -79,7 +79,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `usuario`, `contrasenia`, `rol`) VALUES
-(1, 'webadmin', '$2y$10$EpV8ggqVArqpp2g4Mzh4OObrVda3aC96Es/IdU', 'administrador');
+(1, 'webadmin', '$2y$10$bnJLox/0kaLwrNBoP4LCFuaCyXeCkCPz1y8cUGY5s8d.vz8SshMAG', 'administrador');
 
 --
 -- Índices para tablas volcadas
@@ -96,7 +96,6 @@ ALTER TABLE `autores`
 --
 ALTER TABLE `libros`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_autor` (`id_autor`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -133,8 +132,8 @@ ALTER TABLE `usuarios`
 --
 -- Filtros para la tabla `autores`
 --
-ALTER TABLE `autores`
-  ADD CONSTRAINT `autores_ibfk_1` FOREIGN KEY (`id`) REFERENCES `libros` (`id_autor`);
+ALTER TABLE `libros`
+  ADD CONSTRAINT `FK_libros_autores` FOREIGN KEY (`id_autor`) REFERENCES `autores` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

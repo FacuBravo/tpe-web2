@@ -46,23 +46,13 @@ nav ul li {
 }
 
 .boton:hover {
-    color: rgb(127, 195, 160);
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(74,144,226);
 }
 
 p {
     font-size: 17px;
     color: rgb(74, 144, 226);
     font-weight: bold;
-}
-
-footer {
-    background-color: rgb(183, 228, 199);
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    padding: 35px;
 }
 
 .gmail-link {
@@ -105,7 +95,7 @@ footer {
 .autor-info {
     width: 350px;
     height: 250px;
-    border: 3px solid rgb(0, 102, 204);
+    border: 2px solid rgb(74, 144, 226);;
     border-radius: 10px;
     text-align: center;
     padding: 0 15px;
@@ -119,6 +109,74 @@ footer {
 .autor-info h3 a {
     color: rgb(85, 142, 106);
     text-decoration: none;
+}
+
+main {
+    margin-bottom: 180px;
+}
+
+footer {
+    background-color: rgb(183, 228, 199);
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+}
+
+footer div {
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-container {
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.form {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.form .input {
+    width: 90%;
+    border: 1px solid rgb(127,195,160);
+    outline: 0;
+    height: 25px;
+    font-size: 18px;
+    padding: 8px;
+}
+
+.form .boton {
+    margin-top: 35px;
+}
+
+.mensaje-contenedor {
+    margin-top: 25px;
+    color: rgb(74,144,226);
+}
+
+.form .select {
+    height: 45px;
+}
+
+.form label {
+    font-size: 18px;
+    color: rgb(127,195,160);
+    font-weight: bold;
+}
+
+.oculto {
+    display: none;
 }
 
 * {

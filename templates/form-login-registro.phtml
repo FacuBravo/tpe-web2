@@ -1,7 +1,7 @@
-<article>
+<section class="form-container">
     <form class="form" method="POST" action="<?= $action ?>">
-        <input type="text" name="usuario" placeholder="Usuario" required autocomplete="off">
-        <input type="password" name="contrasenia" placeholder="Contraseña" required>
+        <input class="input" type="text" name="usuario" placeholder="Usuario" required autocomplete="off">
+        <input class="input" type="password" name="contrasenia" placeholder="Contraseña" required>
 
         <?php if ($_GET['action'] == 'registro' || $_GET['action'] == 'nuevoUsuario') : ?>
             <button class="boton">Registrarse</button>
@@ -13,4 +13,4 @@
     <div class="mensaje-contenedor">
         <h4><?= $mensaje ?></h4>
     </div>
-</article>
+</section>

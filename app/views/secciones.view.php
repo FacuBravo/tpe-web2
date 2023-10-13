@@ -23,4 +23,11 @@ class SeccionesView {
         require_once "./templates/about.phtml";
         ViewsHelper::footer();
     }
+
+    public function renderCargarLibro($autores, $mensaje = null) {
+        $titulo = "Nuevo libro";
+        ViewsHelper::header($titulo);
+        require_once "./templates/agregar-item-form.phtml";
+        ViewsHelper::footer();
+    }
 }

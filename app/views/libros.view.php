@@ -6,7 +6,7 @@ class LibrosView {
     public function renderLibros($libros) {
         $titulo = "Libreria";
         ViewsHelper::header($titulo);
-        require_once "./templates/listaLibros.phtml";
+        require_once "./templates/lista-libros.phtml";
         ViewsHelper::footer();
     }
 
@@ -20,13 +20,13 @@ class LibrosView {
     public function renderAutor($autor, $libros) {
         $titulo = $autor->nombre;
         ViewsHelper::header($titulo);
-        require_once "./templates/listaLibros.phtml";
+        require_once "./templates/lista-libros.phtml";
         ViewsHelper::footer();
     }
 
     public function renderLibrosPorGenero($libros, $titulo) {
         ViewsHelper::header($titulo);
-        require_once "./templates/listaLibros.phtml";
+        require_once "./templates/lista-libros.phtml";
         ViewsHelper::footer();
     }
 }

@@ -14,11 +14,6 @@ class SeccionesController {
         $this->modelLibros = new LibrosModel();
     }
 
-    public function showGeneros() {
-        $generos = $this->modelLibros->getGeneros();
-        $this->view->renderGeneros($generos);
-    }
-
     public function showAbout() {
         $this->view->renderAbout();
     }
@@ -26,5 +21,10 @@ class SeccionesController {
     public function showAutores() {
         $autores = $this->modelAutores->getAutores();
         $this->view->renderAutores($autores);
+    }
+
+    public function showCargarLibro() {
+        $autores = $this->modelAutores->getAutores();
+        $this->view->renderCargarLibro($autores);
     }
 }
