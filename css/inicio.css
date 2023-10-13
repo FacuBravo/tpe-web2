@@ -1,77 +1,70 @@
-h1 {
-    text-align: center;
-}
-
 header {
-    background-color: rgb(183, 228, 199); 
+    background-color: rgb(183, 228, 199);
     display: flex;
-    align-items: flex-start; 
-    padding: 20px; 
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
-p { 
-    text-transform: uppercase;
-    padding: 15px;
-    color: rgb(74, 144, 226); 
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    text-align: center;
+header div {
+    width: 99%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+h1 {
+    color: rgb(74, 144, 226);
+}
+
+nav {
+    margin: 15px 0;
+}
+
+nav ul {
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li {
+    list-style: none;
 }
 
 .boton {
-    display: inline;
-    list-style: none;
-    margin: 10px 0;
-    text-transform: uppercase;
-    padding: 15px;
-    color: rgb(74, 144, 226); 
+    color: rgb(74, 144, 226);
     font-weight: bold;
-    background-color: rgb(162, 219, 178); 
-    border: none;
+    background-color: rgb(162, 219, 178);
+    padding: 10px 20px;
     border-radius: 5px;
+    max-width: 150px;
     text-align: center;
-    width: 150px;
-    cursor: pointer;
+    font-size: 20px;
+    text-decoration: none;
 }
 
 .boton:hover {
-    background-color: rgb(127, 195, 160); 
-    color: rgb(255, 255, 255); 
-}
-
-#iniciarSesion {
-    list-style: none;
-    padding: 15px;
-    margin: 10px 0;
-    text-transform: uppercase;
-    padding: 15px;
-    color: rgb(0, 102, 204);
-    font-weight: bold;
-    background-color: rgb(111, 184, 136); 
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    width: 150px; 
-    font-family: Arial, sans-serif;
-}
-
-#iniciarSesion:hover {
-    background-color: rgb(85, 142, 106); 
+    background-color: rgb(127, 195, 160);
     color: rgb(255, 255, 255);
 }
 
+p {
+    font-size: 18px;
+    color: rgb(74, 144, 226);
+    font-weight: bold;
+}
+
 footer {
-    background-color: rgb(183, 228, 199); 
+    background-color: rgb(183, 228, 199);
     text-align: center;
     position: fixed;
-    bottom: 0; 
+    bottom: 0;
     width: 100%;
     padding: 15px;
 }
 
 .gmail-link {
-    color: rgb(0, 102, 204); 
+    color: rgb(0, 102, 204);
     text-decoration: none;
     font-weight: bold;
     font-family: Arial, sans-serif;

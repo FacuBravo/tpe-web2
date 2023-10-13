@@ -9,16 +9,21 @@
 </head>
 <body>
     <header>
-        <h1><?= $titulo ?></h1>
+        <div>
+            <h1><?= $titulo ?></h1>
+            <?php if ($_SESSION['logueado']) : ?>
+                <a href="logout" class="boton">Cerrar Sesion</a>
+            <?php else : ?>
+                <a href="login" class="boton">Iniciar Sesion</a>
+            <?php endif ?>
+        </div>
 
         <nav>
-            <ul id="inicio" >
-                <li class="boton"><a class="linkInvisible" >Autores</a></li>
-                <li class="boton"><a class="linkInvisible" >Libros</a></li>
-                <li class="boton"><a class="linkInvisible" >Contacto</a></li> 
+            <ul>
+                <li><a href="home" class="boton">Home</a></li>
+                <li><a href="autores" class="boton">Autores</a></li>
+                <li><a href="contacto" class="boton">Contacto</a></li>
                 <!-- Agregar contacto -->
             </ul>
-
-            <a href="login">Iniciar Sesion</a>
         </nav>
     </header>
