@@ -2,23 +2,11 @@ h1 {
     text-align: center;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-} 
-
 header {
     background-color: rgb(183, 228, 199); 
     display: flex;
     align-items: flex-start; 
     padding: 20px; 
-}
-footer {
-    background-color: rgb(183, 228, 199); 
-    text-align: center;
-    position: fixed;
-    bottom: 0; 
-    width: 100%; 
 }
 
 p { 
@@ -73,7 +61,14 @@ p {
     color: rgb(255, 255, 255);
 }
 
-
+footer {
+    background-color: rgb(183, 228, 199); 
+    text-align: center;
+    position: fixed;
+    bottom: 0; 
+    width: 100%;
+    padding: 15px;
+}
 
 .gmail-link {
     color: rgb(0, 102, 204); 
@@ -85,4 +80,9 @@ p {
 
 .gmail-link:hover {
     color: rgb(85, 142, 106);
+}
+
+* {
+    margin: 0;
+    padding: 0;
 }
