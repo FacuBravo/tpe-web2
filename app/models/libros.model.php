@@ -30,6 +30,12 @@ class LibrosModel {
     public function getLibrosPorGenero($genero) {
         $query = $this->bd->prepare("SELECT * FROM libros WHERE genero = ?");
         $query->execute([$genero]);
-        return $query->fetchAll(PDO::FETCH_OBJ);        
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    public function getGeneros() {
+        $query = $this->bd->prepare("SELECT genero FROM libros");
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_OBJ);
     }
 }

@@ -10,6 +10,8 @@ if (!empty($_GET['action'])) {
     $action = $_GET['action'];
 }
 
+$params = explode('/', $action);
+
 // home         ->      LibrosController->showHome()
 // login        ->      AuthController->showLogin()
 // auth         ->      AuthController->auth()
@@ -17,9 +19,10 @@ if (!empty($_GET['action'])) {
 // registro     ->      AuthController->showRegister()
 // nuevoUsuario ->      AuthController->nuevoUsuario()
 // libro/id     ->      LibrosController->showLibro($id)
-// autor/id     ->      Controller->showAutor($id)
-
-$params = explode('/', $action);
+// autor/id     ->      LibrosController->showAutor($id)
+// autores      ->      LibrosController->showAutores()
+// genero/id    ->      LibrosController->showGenero($id)
+// generos      ->      LibrosController->showGeneros()
 
 switch ($params[0]) {
     case 'home':
@@ -54,9 +57,17 @@ switch ($params[0]) {
         $controller = new LibrosController();
         $controller->showAutor($params[1]);
         break;
+    case 'autores':
+        $controller = new LibrosController();
+        $controller->showAutores();
+        break;
     case 'genero':
         $controller = new LibrosController();
         $controller->showGenero($params[1]);
+        break;
+    case 'generos':
+        $controller = new LibrosController();
+        $controller->showGeneros();
         break;
     default:
         echo "404 Page Not Found";

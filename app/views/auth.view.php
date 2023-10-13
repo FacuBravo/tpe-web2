@@ -6,6 +6,7 @@ class AuthView {
         $action = "auth";
         require_once "./templates/header.phtml";
         require_once "./templates/form-login-registro.phtml";
+        require_once "./templates/footer.phtml";
     }
 
     public function renderRegister($mensaje = null) {
@@ -13,5 +14,6 @@ class AuthView {
         $action = "nuevoUsuario";
         require_once "./templates/header.phtml";
         require_once "./templates/form-login-registro.phtml";
+        require_once "./templates/footer.phtml";
     }
 }

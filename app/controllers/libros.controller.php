@@ -34,4 +34,14 @@ class LibrosController {
         $libros = $this->modelLibros->getLibrosPorGenero($genero);
         $this->view->renderLibrosPorGenero($libros, $genero);
     }
+
+    public function showAutores() {
+        $autores = $this->modelAutores->getAutores();
+        $this->view->renderAutores($autores);
+    }
+
+    public function showGeneros() {
+        $generos = $this->modelLibros->getGeneros();
+        $this->view->renderGeneros($generos);
+    }
 }

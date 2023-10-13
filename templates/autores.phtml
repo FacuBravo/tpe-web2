@@ -1,0 +1,8 @@
+<section>
+    <?php foreach ($autores as $autor) : ?>
+        <article>
+            <h3><a href="autor/<?= $autor->id ?>"><?= $autor->nombre ?></a></h3>
+            <p><?= $autor->descripcion ?></p>
+        </article>
+    <?php endforeach ?>
+</section>

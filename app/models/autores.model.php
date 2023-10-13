@@ -1,6 +1,6 @@
 <?php
 
-// require_once "config.php";
+require_once "config.php";
 
 class AutoresModel {
     private $bd;
@@ -13,5 +13,11 @@ class AutoresModel {
         $query = $this->bd->prepare("SELECT * FROM autores WHERE id = ?");
         $query->execute([$id]);
         return $query->fetch(PDO::FETCH_OBJ);
+    }
+
+    public function getAutores() {
+        $query = $this->bd->prepare("SELECT * FROM autores");
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_OBJ);
     }
 }
