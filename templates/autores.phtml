@@ -1,6 +1,6 @@
-<section>
+<section class="autores-container">
     <?php foreach ($autores as $autor) : ?>
-        <article>
+        <article class="autor-info">
             <h3><a href="autor/<?= $autor->id ?>"><?= $autor->nombre ?></a></h3>
             <p><?= $autor->descripcion ?></p>
         </article>
