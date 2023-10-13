@@ -1,6 +1,7 @@
 <?php
 require_once "./app/controllers/libros.controller.php";
 require_once "./app/controllers/auth.controller.php";
+require_once "./app/controllers/secciones.controller.php";
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
@@ -20,9 +21,10 @@ $params = explode('/', $action);
 // nuevoUsuario ->      AuthController->nuevoUsuario()
 // libro/id     ->      LibrosController->showLibro($id)
 // autor/id     ->      LibrosController->showAutor($id)
-// autores      ->      LibrosController->showAutores()
+// autores      ->      SeccionesController->showAutores()
 // genero/id    ->      LibrosController->showGenero($id)
-// generos      ->      LibrosController->showGeneros()
+// generos      ->      SeccionesController->showGeneros()
+// about        ->      SeccionesController->showAbout()
 
 switch ($params[0]) {
     case 'home':
@@ -58,7 +60,7 @@ switch ($params[0]) {
         $controller->showAutor($params[1]);
         break;
     case 'autores':
-        $controller = new LibrosController();
+        $controller = new SeccionesController();
         $controller->showAutores();
         break;
     case 'genero':
@@ -66,8 +68,12 @@ switch ($params[0]) {
         $controller->showGenero($params[1]);
         break;
     case 'generos':
-        $controller = new LibrosController();
+        $controller = new SeccionesController();
         $controller->showGeneros();
+        break;
+    case 'about':
+        $controller = new SeccionesController();
+        $controller->showAbout();
         break;
     default:
         echo "404 Page Not Found";

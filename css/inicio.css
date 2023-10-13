@@ -77,6 +77,20 @@ footer {
     color: rgb(85, 142, 106);
 }
 
+.about-container {
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-tarjeta {
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+
 * {
     margin: 0;
     padding: 0;

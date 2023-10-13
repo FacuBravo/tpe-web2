@@ -1,19 +1,21 @@
 <?php
 
+require_once './app/helpers/views.helper.php';
+
 class AuthView {
     public function renderLogin($mensaje = null) {
         $titulo = "Iniciar sesion";
         $action = "auth";
-        require_once "./templates/header.phtml";
+        ViewsHelper::header($titulo);
         require_once "./templates/form-login-registro.phtml";
-        require_once "./templates/footer.phtml";
+        ViewsHelper::footer();
     }
 
     public function renderRegister($mensaje = null) {
         $titulo = "Registro";
         $action = "nuevoUsuario";
-        require_once "./templates/header.phtml";
+        ViewsHelper::header($titulo);
         require_once "./templates/form-login-registro.phtml";
-        require_once "./templates/footer.phtml";
+        ViewsHelper::footer();
     }
 }
