@@ -64,7 +64,7 @@ class LibrosController {
         $this->modelLibros->agregarLibro($titulo, $genero, $descripcion, $precio, $idAutor);
 
         $autores = $this->modelAutores->getAutores();
-        $this->viewSecciones->renderCargarLibro($autores, "Libro agregado exitosamente");
+        $this->viewSecciones->renderCargarLibro($autores, null, "Libro agregado exitosamente");
     }
 
     private function comprobarInputs($inputs) {
@@ -80,6 +80,41 @@ class LibrosController {
     }
 
     public function editar() {
-        
+        $autores = $this->modelAutores->getAutores();
+        $id = explode("/", $_GET["action"])[1];
+        $titulo = $_POST["titulo"];
+        $genero = $_POST["genero"];
+        $descripcion = $_POST["descripcion"];
+        $precio = $_POST["precio"];
+        $idAutor = $_POST["autor"];
+        $nombreAutor = "";
+        $descripcionAutor = "";
+
+        $inputs = [$titulo, $genero, $descripcion, $precio, $idAutor];
+
+        if ($this->comprobarInputs($inputs)) {
+            $this->viewSecciones->renderCargarLibro($autores, "Llenar todos los campos");
+        }
+
+        if ($idAutor == "otro") {
+            $nombreAutor = $_POST["nombreAutor"];
+            $descripcionAutor = $_POST["descripcionAutor"];
+
+            if (empty($nombreAutor) || empty($descripcionAutor)) {
+                $this->viewSecciones->renderCargarLibro($autores, "Llenar todos los campos");
+            }
+
+            $idAutor = ($autores[count($autores) - 1]->id) + 1;
+            
+            $this->modelAutores->agregarAuto($idAutor, $nombreAutor, $descripcionAutor);
+        }
+
+        $this->modelLibros->modificarTitulo($id, $titulo);
+        $this->modelLibros->modificarGenero($id, $genero);
+        $this->modelLibros->modificarDescripcion($id, $descripcion);
+        $this->modelLibros->modificarPrecio($id, $precio);
+        $this->modelLibros->modificarAutor($id, $idAutor);
+
+        header("Location:" . BASE_URL);
     }
 }

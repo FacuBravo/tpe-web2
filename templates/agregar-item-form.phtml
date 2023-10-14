@@ -1,15 +1,22 @@
 <section class="form-container">
-    <form class="form" method="POST" action="<?= $action ?>">
+    <form class="form" method="POST" action="<?= $action ?>/<?php if ($libro != null) : echo $libro->id; endif ?>">
         <input class="input" type="text" name="titulo" placeholder="Titulo" required autocomplete="off" <?php if ($libro != null) : ?> value="<?= $libro->titulo ?>" <?php endif ?>>
         <input class="input" type="text" name="genero" placeholder="Genero" required <?php if ($libro != null) : ?> value="<?= $libro->genero ?>" <?php endif ?>>
         <input class="input" type="text" name="descripcion" placeholder="Descripcion" required autocomplete="off" <?php if ($libro != null) : ?> value="<?= $libro->descripcion ?>" <?php endif ?>>
         <input class="input" type="number" name="precio" placeholder="Precio" required autocomplete="off" <?php if ($libro != null) : ?> value="<?= $libro->precio ?>" <?php endif ?>>
 
         <label for="autor">Autor</label>
-        <select class="input select" name="autor" id="selectAutor" <?php if ($libro != null) : ?> value="<?= $libro->id_autor ?>" <?php endif ?>>
+
+        <select class="input select" name="autor" id="selectAutor">
+
             <?php foreach ($autores as $autor) : ?>
-                <option value="<?= $autor->id ?>"><?= $autor->nombre ?></option>
+
+                <option value="<?= $autor->id ?>" <?php if ($libro != null && $libro->id_autor == $autor->id) : ?> selected <?php endif ?>>
+                    <?= $autor->nombre ?>
+                </option>
+                
             <?php endforeach ?>
+            
             <option value="otro">Otro</option>
         </select>
 
