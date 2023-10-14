@@ -2,6 +2,11 @@
     <?php foreach ($autores as $autor) : ?>
         <article class="tarjeta-info">
             <h3><a href="autor/<?= $autor->id ?>"><?= $autor->nombre ?></a></h3>
+
+            <?php if (!empty($_SESSION['USER_ROL']) && $_SESSION['USER_ROL'] == "administrador") : ?>
+                <a href="eliminarAutor/<?= $autor->id ?>"><img src="imagenes/eliminar.png" alt="Icono eliminar"></a>
+            <?php endif ?>
+
             <p><?= $autor->descripcion ?></p>
         </article>
     <?php endforeach ?>

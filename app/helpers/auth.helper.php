@@ -8,6 +8,14 @@ class AuthHelper {
         }
     }
 
+    public static function verifyPermisos() {
+        AuthHelper::verify();
+        
+        if ($_SESSION['USER_ROL'] != "administrador") {
+            header("Location:" . BASE_URL);
+        }
+    }
+
     public static function login($user) {
         AuthHelper::init();
         $_SESSION['USER_ID'] = $user->id;

@@ -25,4 +25,9 @@ class AutoresModel {
         $query = $this->bd->prepare("INSERT INTO autores (id, nombre, descripcion) VALUES (?, ?, ?)");
         $query->execute([$id, $nombreAutor, $descripcionAutor]);
     }
+
+    public function eliminarAutor($id) {
+        $query = $this->bd->prepare("DELETE FROM autores WHERE id = ?");
+        $query->execute([$id]);
+    }
 }

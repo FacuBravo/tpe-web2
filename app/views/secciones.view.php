@@ -32,7 +32,7 @@ class SeccionesView {
         ViewsHelper::footer();
     }
     
-    public function renderError($error) {
+    public function renderError($error, $img) {
         $titulo = "Error";
 
         ViewsHelper::header($titulo);

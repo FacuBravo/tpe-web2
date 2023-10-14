@@ -26,13 +26,8 @@ class LibrosController {
         $this->view->renderLibro($libro, $autor);
     }
 
-    public function showAutor ($idAutor) {
-        $autor = $this->modelAutores->getAutorPorId($idAutor);
-        $libros = $this->modelLibros->getLibrosPorAutor($idAutor);
-        $this->view->renderAutor($autor, $libros);
-    }
-
     public function nuevoLibro() {
+        AuthHelper::verifyPermisos();
         $autores = $this->modelAutores->getAutores();
         $titulo = $_POST["titulo"];
         $genero = $_POST["genero"];
@@ -67,19 +62,8 @@ class LibrosController {
         $this->viewSecciones->renderCargarLibro($autores, null, "Libro agregado exitosamente");
     }
 
-    private function comprobarInputs($inputs) {
-        $cuenta = 0;
-
-        foreach ($inputs as $input) {
-            if (empty($input)) {
-                $cuenta++;
-            }
-        }
-
-        return $cuenta > 0;
-    }
-
     public function editar() {
+        AuthHelper::verifyPermisos();
         $autores = $this->modelAutores->getAutores();
         $id = explode("/", $_GET["action"])[1];
         $titulo = $_POST["titulo"];
@@ -116,5 +100,23 @@ class LibrosController {
         $this->modelLibros->modificarAutor($id, $idAutor);
 
         header("Location:" . BASE_URL);
+    }
+
+    public function eliminarLibro($id) {
+        AuthHelper::verifyPermisos();
+        $this->modelLibros->eliminarLibro($id);
+        header("Location:" . BASE_URL);
+    }
+
+    private function comprobarInputs($inputs) {
+        $cuenta = 0;
+
+        foreach ($inputs as $input) {
+            if (empty($input)) {
+                $cuenta++;
+            }
+        }
+
+        return $cuenta > 0;
     }
 }

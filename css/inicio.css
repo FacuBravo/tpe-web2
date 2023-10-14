@@ -210,7 +210,14 @@ footer div {
     color: red;
     font-size: 32px;
     text-align: center;
-    margin-top: 10%;
+    margin-top: 5%;
+}
+
+.container-opciones-admin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
 }
 
 * {

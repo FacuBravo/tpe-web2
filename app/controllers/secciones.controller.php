@@ -29,18 +29,22 @@ class SeccionesController {
     }
 
     public function showEditar($id) {
+        AuthHelper::verifyPermisos();
         $libro = $this->modelLibros->getLibroPorId($id);
         $autores = $this->modelAutores->getAutores();
         $this->view->renderFormEditarLibro($libro, $autores);
     }
 
     public function showError($error) {
+        $img = "";
+
         switch ($error) {
             case 404:
                 $error = "Error 404 No Encontrado";
+                $img = "imagenes/error404.png";
                 break;
-        }
+        }        
         
-        $this->view->renderError($error);
+        $this->view->renderError($error, $img);
     }
 }

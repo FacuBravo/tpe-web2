@@ -56,4 +56,9 @@ class LibrosModel {
         $query = $this->bd->prepare("UPDATE libros SET id_autor = ? WHERE id = ?");
         $query->execute([$idAutor, $id]);
     }
+
+    public function eliminarLibro($id) {
+        $query = $this->bd->prepare("DELETE FROM libros WHERE id = ?");
+        $query->execute([$id]);
+    }
 }

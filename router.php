@@ -1,5 +1,7 @@
 <?php
+
 require_once "./app/controllers/libros.controller.php";
+require_once "./app/controllers/autores.controller.php";
 require_once "./app/controllers/auth.controller.php";
 require_once "./app/controllers/secciones.controller.php";
 
@@ -13,18 +15,21 @@ if (!empty($_GET['action'])) {
 
 $params = explode('/', $action);
 
-// home         ->      LibrosController->showHome()
-// login        ->      AuthController->showLogin()
-// auth         ->      AuthController->auth()
-// logout       ->      AuthController->logout()
-// registro     ->      AuthController->showRegister()
-// nuevoUsuario ->      AuthController->nuevoUsuario()
-// libro/id     ->      LibrosController->showLibro($id)
-// autor/id     ->      LibrosController->showAutor($id)
-// autores      ->      SeccionesController->showAutores()
-// about        ->      SeccionesController->showAbout()
-// editar       ->      SeccionesController->showEditar()
-// editarLibro  ->      LibrosController->editar()
+// home              ->      LibrosController->showHome()
+// login             ->      AuthController->showLogin()
+// auth              ->      AuthController->auth()
+// logout            ->      AuthController->logout()
+// registro          ->      AuthController->showRegister()
+// nuevoUsuario      ->      AuthController->nuevoUsuario()
+// libro/id          ->      LibrosController->showLibro($id)
+// autor/id          ->      AutoresController->showAutor($id)
+// autores           ->      SeccionesController->showAutores()
+// about             ->      SeccionesController->showAbout()
+// editar            ->      SeccionesController->showEditar()
+// editarLibro       ->      LibrosController->editar()
+// eliminarLibro     ->      LibrosController->eliminar()
+// eliminarAutor     ->      AutoresController->eliminar()
+
 
 switch ($params[0]) {
     case 'home':
@@ -56,7 +61,7 @@ switch ($params[0]) {
         $controller->showLibro($params[1]);
         break;
     case 'autor':
-        $controller = new LibrosController();
+        $controller = new AutoresController();
         $controller->showAutor($params[1]);
         break;
     case 'autores':
@@ -82,6 +87,14 @@ switch ($params[0]) {
     case 'editarLibro':
         $controller = new LibrosController();
         $controller->editar();
+        break;
+    case 'eliminarLibro':
+        $controller = new LibrosController();
+        $controller->eliminarLibro($params[1]);
+        break;
+    case 'eliminarAutor':
+        $controller = new AutoresController();
+        $controller->eliminarAutor($params[1]);
         break;
     default:
         $controller = new SeccionesController();
