@@ -156,6 +156,11 @@ footer div {
     padding: 8px;
 }
 
+.form .textarea {
+    resize: none;
+    height: 200px;
+}
+
 .form .boton {
     margin-top: 35px;
 }

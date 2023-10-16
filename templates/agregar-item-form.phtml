@@ -2,7 +2,7 @@
     <form class="form" method="POST" action="<?= $action ?>/<?php if ($libro != null) : echo $libro->id; endif ?>">
         <input class="input" type="text" name="titulo" placeholder="Titulo" required autocomplete="off" <?php if ($libro != null) : ?> value="<?= $libro->titulo ?>" <?php endif ?>>
         <input class="input" type="text" name="genero" placeholder="Genero" required <?php if ($libro != null) : ?> value="<?= $libro->genero ?>" <?php endif ?>>
-        <input class="input" type="text" name="descripcion" placeholder="Descripcion" required autocomplete="off" <?php if ($libro != null) : ?> value="<?= $libro->descripcion ?>" <?php endif ?>>
+        <textarea class="input textarea" name="descripcion" id="" cols="30" rows="10" placeholder="Descripcion" required><?php if ($libro != null) : $libro->descripcion; endif ?></textarea>
         <input class="input" type="number" name="precio" placeholder="Precio" required autocomplete="off" <?php if ($libro != null) : ?> value="<?= $libro->precio ?>" <?php endif ?>>
 
         <label for="autor">Autor</label>
