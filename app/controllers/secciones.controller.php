@@ -24,6 +24,7 @@ class SeccionesController {
     }
 
     public function showCargarLibro() {
+        AuthHelper::verify();
         $autores = $this->modelAutores->getAutores();
         $this->view->renderCargarLibro($autores);
     }
