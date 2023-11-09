@@ -4,10 +4,21 @@
             <h3><a href="autor/<?= $autor->id ?>"><?= $autor->nombre ?></a></h3>
 
             <?php if (!empty($_SESSION['USER_ROL']) && $_SESSION['USER_ROL'] == "administrador") : ?>
-                <a href="eliminarAutor/<?= $autor->id ?>"><img src="imagenes/eliminar.png" alt="Icono eliminar"></a>
+                <div class="container-opciones-admin">
+                    <a href="editarAutor/<?= $autor->id ?>">Editar</a>
+                    <a href="eliminarAutor/<?= $autor->id ?>"><img src="imagenes/eliminar.png" alt="Icono eliminar"></a>
+                </div>
             <?php endif ?>
 
             <p><?= $autor->descripcion ?></p>
         </article>
     <?php endforeach ?>
 </section>
+
+<?php if ($mensaje != null) : ?>
+    <div class="mensaje">
+        <h3><?= $mensaje ?></h3>
+        <label for="cerrar-mensaje">Aceptar</label>
+        <input type="checkbox" id="cerrar-mensaje">
+    </div>
+<?php endif ?>

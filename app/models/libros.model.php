@@ -9,13 +9,13 @@ class LibrosModel {
         $this->bd = new PDO('mysql:host=' . BD_HOST . ';dbname=' . BD_NAME . ';charset=' . BD_CHARSET . '', '' . BD_USER . '', '' . BD_PASS . '');
     }
 
-    public function getLibros() {
-        $query = $this->bd->prepare("SELECT * FROM libros");
+    public function getLibros($sort = "id", $order = "asc") {
+        $query = $this->bd->prepare("SELECT * FROM libros ORDER BY " . $sort . " " . $order);
         $query->execute();
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function getLibroPorId($id) {
+    public function getLibro($id) {
         $query = $this->bd->prepare("SELECT * FROM libros WHERE id = ?");
         $query->execute([$id]);
         return $query->fetch(PDO::FETCH_OBJ);
@@ -30,31 +30,12 @@ class LibrosModel {
     public function agregarLibro($titulo, $genero, $descripcion, $precio, $autor) {
         $query = $this->bd->prepare("INSERT INTO libros (titulo, genero, id_autor, descripcion, precio) VALUES (?, ?, ?, ?, ?)");
         $query->execute([$titulo, $genero, $autor, $descripcion, $precio]);
+        return $this->bd->lastInsertId();
     }
 
-    public function modificarTitulo($id, $titulo) {
-        $query = $this->bd->prepare("UPDATE libros SET titulo = ? WHERE id = ?");
-        $query->execute([$titulo, $id]);
-    }
-
-    public function modificarGenero($id, $genero) {
-        $query = $this->bd->prepare("UPDATE libros SET genero = ? WHERE id = ?");
-        $query->execute([$genero, $id]);
-    }
-    
-    public function modificarDescripcion($id, $descripcion) {
-        $query = $this->bd->prepare("UPDATE libros SET descripcion = ? WHERE id = ?");
-        $query->execute([$descripcion, $id]);
-    }
-
-    public function modificarPrecio($id, $precio) {
-        $query = $this->bd->prepare("UPDATE libros SET precio = ? WHERE id = ?");
-        $query->execute([$precio, $id]);
-    }
-
-    public function modificarAutor($id, $idAutor) {
-        $query = $this->bd->prepare("UPDATE libros SET id_autor = ? WHERE id = ?");
-        $query->execute([$idAutor, $id]);
+    public function modificarLibro($id, $titulo, $genero, $autor, $descripcion, $precio) {
+        $query = $this->bd->prepare("UPDATE libros SET titulo = ?, genero = ?, id_autor = ?, descripcion = ?, precio = ? WHERE id = ?");
+        $query->execute([$titulo, $genero, $autor, $descripcion, $precio, $id]);
     }
 
     public function eliminarLibro($id) {

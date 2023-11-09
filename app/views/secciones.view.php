@@ -10,7 +10,7 @@ class SeccionesView {
         ViewsHelper::footer();
     }
 
-    public function renderAutores($autores) {
+    public function renderAutores($autores, $mensaje = null) {
         $titulo = "Autores";
         ViewsHelper::header($titulo);
         require_once "./templates/autores.phtml";
@@ -28,13 +28,26 @@ class SeccionesView {
         $titulo = "Nuevo libro";
         $action = "nuevoLibro";
         ViewsHelper::header($titulo);
-        require_once "./templates/agregar-item-form.phtml";
+        require_once "./templates/agregar-libro-form.phtml";
+        ViewsHelper::footer();
+    }
+
+    public function renderCargarAutor($mensaje = null, $autor = null) {
+        $titulo = "Nuevo autor";
+
+        if ($autor == null) {
+            $action = "nuevoAutor";
+        } else {
+            $action = "autorEditado/$autor->id";
+        }
+
+        ViewsHelper::header($titulo);
+        require_once "./templates/agregar-autor.phtml";
         ViewsHelper::footer();
     }
     
     public function renderError($error, $img) {
         $titulo = "Error";
-
         ViewsHelper::header($titulo);
         require_once "./templates/error.phtml";
         ViewsHelper::footer();
@@ -44,7 +57,7 @@ class SeccionesView {
         $titulo = "Editar libro";
         $action = "editarLibro";
         ViewsHelper::header($titulo);
-        require_once "./templates/agregar-item-form.phtml";
+        require_once "./templates/agregar-libro-form.phtml";
         ViewsHelper::footer();
     }
 }

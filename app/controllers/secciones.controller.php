@@ -29,11 +29,22 @@ class SeccionesController {
         $this->view->renderCargarLibro($autores);
     }
 
+    public function showCargarAutor() {
+        AuthHelper::verify();
+        $this->view->renderCargarAutor();
+    }
+
     public function showEditar($id) {
         AuthHelper::verifyPermisos();
-        $libro = $this->modelLibros->getLibroPorId($id);
+        $libro = $this->modelLibros->getLibro($id);
         $autores = $this->modelAutores->getAutores();
         $this->view->renderFormEditarLibro($libro, $autores);
+    }
+
+    public function showEditarAutor($id) {
+        AuthHelper::verifyPermisos();
+        $autor = $this->modelAutores->getAutor($id);
+        $this->view->renderCargarAutor(null, $autor);
     }
 
     public function showError($error) {

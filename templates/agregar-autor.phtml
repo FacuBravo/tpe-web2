@@ -1,0 +1,15 @@
+<section class="form-container">
+    <form class="form" action="<?= $action ?>" method="POST">
+        <input class="input" type="text" name="nombreAutor" placeholder="Nombre" required autocomplete="off" <?php if ($autor != null) : ?> value="<?= $autor->nombre ?>" <?php endif ?>>
+        <input class="input" type="text" name="descripcionAutor" placeholder="Descripcion" required autocomplete="off" <?php if ($autor != null) : ?> value="<?= $autor->descripcion ?>" <?php endif ?>>
+        <button class="boton">Cargar</button>
+    </form>
+</section>
+
+<?php if ($mensaje != null) : ?>
+    <div class="mensaje">
+        <h3><?= $mensaje ?></h3>
+        <label for="cerrar-mensaje">Aceptar</label>
+        <input type="checkbox" id="cerrar-mensaje">
+    </div>
+<?php endif ?>

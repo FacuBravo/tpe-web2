@@ -1,4 +1,6 @@
 <?php
+
+require_once "./app/helpers/auth.helper.php";
 require_once "./app/views/libros.view.php";
 require_once "./app/views/secciones.view.php";
 require_once "./app/models/libros.model.php";
@@ -21,14 +23,22 @@ class LibrosController {
     }
 
     public function showLibro($idLibro) {
-        $libro = $this->modelLibros->getLibroPorId($idLibro);
-        $autor = $this->modelAutores->getAutorPorId($libro->id_autor); 
+        $libro = $this->modelLibros->getLibro($idLibro);
+        $autor = $this->modelAutores->getAutor($libro->id_autor); 
         $this->view->renderLibro($libro, $autor);
     }
 
     public function nuevoLibro() {
         AuthHelper::verifyPermisos();
         $autores = $this->modelAutores->getAutores();
+
+        $inputs = [$_POST["titulo"], $_POST["genero"], $_POST["descripcion"], $_POST["precio"], $_POST["autor"]];
+
+        if ($this->comprobarInputs($inputs)) {
+            $this->viewSecciones->renderCargarLibro($autores, null, "Llenar todos los campos");
+            die();
+        }
+
         $titulo = $_POST["titulo"];
         $genero = $_POST["genero"];
         $descripcion = $_POST["descripcion"];
@@ -37,23 +47,18 @@ class LibrosController {
         $nombreAutor = "";
         $descripcionAutor = "";
 
-        $inputs = [$titulo, $genero, $descripcion, $precio, $idAutor];
-
-        if ($this->comprobarInputs($inputs)) {
-            $this->viewSecciones->renderCargarLibro($autores, "Llenar todos los campos");
-        }
-
         if ($idAutor == "otro") {
             $nombreAutor = $_POST["nombreAutor"];
             $descripcionAutor = $_POST["descripcionAutor"];
 
             if (empty($nombreAutor) || empty($descripcionAutor)) {
-                $this->viewSecciones->renderCargarLibro($autores, "Llenar todos los campos");
+                $this->viewSecciones->renderCargarLibro($autores, null, "Llenar todos los campos");
+                die();
             }
 
             $idAutor = ($autores[count($autores) - 1]->id) + 1;
             
-            $this->modelAutores->agregarAuto($idAutor, $nombreAutor, $descripcionAutor);
+            $this->modelAutores->agregarAutor($idAutor, $nombreAutor, $descripcionAutor);
         }
 
         $this->modelLibros->agregarLibro($titulo, $genero, $descripcion, $precio, $idAutor);
@@ -65,6 +70,7 @@ class LibrosController {
     public function editar() {
         AuthHelper::verifyPermisos();
         $autores = $this->modelAutores->getAutores();
+
         $id = explode("/", $_GET["action"])[1];
         $titulo = $_POST["titulo"];
         $genero = $_POST["genero"];
@@ -77,7 +83,8 @@ class LibrosController {
         $inputs = [$titulo, $genero, $descripcion, $precio, $idAutor];
 
         if ($this->comprobarInputs($inputs)) {
-            $this->viewSecciones->renderCargarLibro($autores, "Llenar todos los campos");
+            $this->viewSecciones->renderCargarLibro($autores, null, "Llenar todos los campos");
+            die();
         }
 
         if ($idAutor == "otro") {
@@ -85,21 +92,18 @@ class LibrosController {
             $descripcionAutor = $_POST["descripcionAutor"];
 
             if (empty($nombreAutor) || empty($descripcionAutor)) {
-                $this->viewSecciones->renderCargarLibro($autores, "Llenar todos los campos");
+                $this->viewSecciones->renderCargarLibro($autores, null, "Llenar todos los campos");
+                die();
             }
 
             $idAutor = ($autores[count($autores) - 1]->id) + 1;
             
-            $this->modelAutores->agregarAuto($idAutor, $nombreAutor, $descripcionAutor);
+            $this->modelAutores->agregarAutor($idAutor, $nombreAutor, $descripcionAutor);
         }
 
-        $this->modelLibros->modificarTitulo($id, $titulo);
-        $this->modelLibros->modificarGenero($id, $genero);
-        $this->modelLibros->modificarDescripcion($id, $descripcion);
-        $this->modelLibros->modificarPrecio($id, $precio);
-        $this->modelLibros->modificarAutor($id, $idAutor);
+        $this->modelLibros->modificarLibro($id, $titulo, $genero, $idAutor, $descripcion, $precio);
 
-        header("Location:" . BASE_URL);
+        header("Location:" . BASE_URL . "home");
     }
 
     public function eliminarLibro($id) {

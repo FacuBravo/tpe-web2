@@ -3,12 +3,14 @@
         <article class="tarjeta-info">
             <h3><a href="libro/<?= $libro->id ?>"><?= $libro->titulo ?></a></h3>
 
-            <div class="container-opciones-admin">
-                <?php if (!empty($_SESSION['USER_ROL']) && $_SESSION['USER_ROL'] == "administrador") : ?>
+
+            <?php if (!empty($_SESSION['USER_ROL']) && $_SESSION['USER_ROL'] == "administrador") : ?>
+                <div class="container-opciones-admin">
                     <a href="editar/<?= $libro->id ?>">Editar</a>
                     <a href="eliminarLibro/<?= $libro->id ?>"><img src="imagenes/eliminar.png" alt="Icono eliminar"></a>
-                <?php endif ?>
-            </div>
+                </div>
+            <?php endif ?>
+
             <p><?= $libro->descripcion ?></p>
         </article>
     <?php endforeach ?>

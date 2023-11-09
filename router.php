@@ -76,6 +76,10 @@ switch ($params[0]) {
         $controller = new SeccionesController();
         $controller->showCargarLibro();
         break;
+    case 'cargarAutor':
+        $controller = new SeccionesController();
+        $controller->showCargarAutor();
+        break;
     case 'nuevoLibro':
         $controller = new LibrosController();
         $controller->nuevoLibro();
@@ -95,6 +99,18 @@ switch ($params[0]) {
     case 'eliminarAutor':
         $controller = new AutoresController();
         $controller->eliminarAutor($params[1]);
+        break;
+    case 'editarAutor':
+        $controller = new SeccionesController();
+        $controller->showEditarAutor($params[1]);
+        break;
+    case 'autorEditado':
+        $controller = new AutoresController();
+        $controller->editar($params[1]);
+        break;
+    case 'nuevoAutor':
+        $controller = new AutoresController();
+        $controller->nuevoAutor();
         break;
     default:
         $controller = new SeccionesController();
